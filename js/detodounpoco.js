@@ -4,6 +4,7 @@
  */
 {
     let botones;
+    let contador = 0;
 
     let elegirDia = function(indice){
         switch (indice) {
@@ -25,6 +26,11 @@
     }
 
     let informar = () =>{
+        if(contador >= 1){ //Para evitar que se encadenen más hijos en el body.
+            return;
+        }
+        contador++;
+
         let fechaActual = new Date();
         let dia = elegirDia(fechaActual.getDay());
         

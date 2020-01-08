@@ -15,6 +15,7 @@
         switch(evento){
             case "enlace":
                 return () =>{ //Cuando se pulsa el enlace
+                    event.preventDefault();
                     let ventana = window.open("","","");
                     ventana.document.write(
                         `<!DOCTYPE html>
