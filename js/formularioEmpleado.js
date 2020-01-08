@@ -13,12 +13,15 @@
 
         let cadena = chequeaNombre() + chequeaFecha() + chequeaDni();
         if(cadena.length === 0){
+
             let empleado = new Empleado(document.getElementById("nombre").value,
                                     document.getElementById("fechaN").value,
                                     document.getElementById("dni").value
                                     );
 
             empleado.creaVentana();
+
+            nombre.value = dni.value = fechaN.value = ""; //Todo es correcto, se crea la ventana y se vacian los inputs
         }
     }
 

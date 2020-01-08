@@ -6,7 +6,7 @@
 
 let Validar = {
     compruebaNombre(texto) {
-        let regexNombre = /^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]{2,} /s)([A-ZÁÉÍÓÚÑ][a-záéíóúñ]{2,})$/g;
+        let regexNombre = /^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]{2,})\s([A-ZÁÉÍÓÚÑ][a-záéíóúñ]{2,})$/g;
 
         if (!regexNombre.test(texto)) {
             return "Error.El nombre tiene que tener almenos 3 caracteres y no puede contener números ni símbolos.";
