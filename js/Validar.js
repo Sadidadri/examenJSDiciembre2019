@@ -13,32 +13,31 @@
 
 
     let compruebaNombre = function () {
-        let nombre = document.getElementById("nombre");
-        let regexNombre = /[A-Za-záéíóúÁÉÍÓÚñÑ]{3,}/g;
+        //let nombre = document.getElementById("nombre");
+        let regexNombre = /^[A-Za-záéíóúÁÉÍÓÚñÑ]{3,}$/g;
 
         if (!regexNombre.test(nombre.value.trim())) {
-            spanErrorNombre.innerHTML = "<span id=\"errorNombre\" class=\"error\">Error.El nombre tiene que tener almenos 3 caracteres y no puede contener números ni símbolos.</span>";
+            spanErrorNombre.innerHTML = "Error.El nombre tiene que tener almenos 3 caracteres y no puede contener números ni símbolos.";
         }
         else{
-            spanErrorNombre.innerHTML = "<span id=\"errorNombre\"></span>";
+            spanErrorNombre.innerHTML = "";
         }
     }
 
     let compruebaFecha = function(){
-        let fecha = document.getElementById("fechaN");
         
-        let regexFecha = /^(\d{2})[-/](\d{2})[-/](\d{4})$/;
+        let regexFecha = /^\d{2}[-/]\d{2}[-/]\d{4}$/;
 
-        if(!regexFecha.test(fecha.value.trim())){
-            spanErrorFecha.innerHTML = "<span id=\"errorFecha\" class=\"error\">Error.La fecha debe tener el siguiente formato: dd/mm/aaaa o dd-mm-aaaa</span>";
+        if(!regexFecha.test(fechaN.value.trim())){
+            spanErrorFecha.innerHTML = "Error.La fecha debe tener el siguiente formato: dd/mm/aaaa o dd-mm-aaaa";
         }
         else{
-            spanErrorFecha.innerHTML = "<span id=\"errorFecha\"></span>";
+            spanErrorFecha.innerHTML = "";
         }
     }
 
     let compruebaDni = function () {
-        let dni = document.getElementById("dni");
+        //let dni = document.getElementById("dni");
         let cadena = "TRWAGMYFPDXBNJZSQVHLCKET";
 
         let dniValor = dni.value;
@@ -46,20 +45,21 @@
         let regexDni = /^(\d{8})[- _]?([A-Z]){1}$/;
 
         if (regexDni.test(dniValor.trim())) {
-            let dniNumeros = regexDni.exec(dniValor)[1];
-            let letraDni = regexDni.exec(dniValor)[2];
+            let dniComprobado = regexDni.exec(dniValor);
+            let dniNumeros = dniComprobado[1];
+            let letraDni = dniComprobado[2];
 
             let posicion = dniNumeros % 23;
 
             if (cadena[posicion] != letraDni) {
-                spanErrorDni.innerHTML = "<span id=\"errorDni\" class=\"error\">Error.El DNI no es válido</span>";
+                spanErrorDni.innerHTML = "Error.El DNI no es válido";
             }
             else{
-                spanErrorDni.innerHTML = "<span id=\"errorDni\"></span>";
+                spanErrorDni.innerHTML = "";
             }
         }
         else{
-            spanErrorDni.innerHTML = "<span id=\"errorDni\" class=\"error\">Error.El formato del DNI no es válido</span>";
+            spanErrorDni.innerHTML = "Error.El formato del DNI no es válido";
         }
     }
 

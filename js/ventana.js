@@ -11,9 +11,7 @@
                                     document.getElementById("dni").value
                                     );
 
-        let ventanaEmpleado = window.open("", "", "");
-        ventanaEmpleado.document.write(empleado.generaHTML());
-        ventanaEmpleado.document.close();
+        empleado.creaVentana();
 
     }
     

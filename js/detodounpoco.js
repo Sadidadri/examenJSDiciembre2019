@@ -27,8 +27,11 @@
     let informar = () =>{
         let fechaActual = new Date();
         let dia = elegirDia(fechaActual.getDay());
-        let primerParrafo = "<p>Hoy es: "+dia+"</p>";
-        document.body.innerHTML += primerParrafo;
+        
+        let primerParrafo = document.createElement("p");
+        let textoPrimerParrafo = document.createTextNode("Hoy es: "+dia);
+        primerParrafo.appendChild(textoPrimerParrafo);
+        document.body.appendChild(primerParrafo);
 
         let horas = fechaActual.getHours().toString();
         if(horas.length == 1){
@@ -50,8 +53,11 @@
             mensaje = "Son las "+horas+":"+minutos+". Pronto llegan las vacaciones. Aguanta";
         }
 
-        let segundoParrafo = "<p>"+mensaje+"</p>";
-        document.body.innerHTML += segundoParrafo;
+
+        let segundoParrafo = document.createElement("p");
+        let textoSegundoParrafo = document.createTextNode(mensaje);
+        segundoParrafo.appendChild(textoSegundoParrafo);
+        document.body.appendChild(segundoParrafo);
 
     }
 

@@ -23,9 +23,9 @@ Empleado.prototype.getFecha = function () {
 Empleado.prototype.getDni = function () {
     return this.dni;
 }
-
-Empleado.prototype.generaHTML = function () {
-    return `
+Empleado.prototype.creaVentana = function () {
+    let ventanaEmpleado = window.open("", "", "");
+    ventanaEmpleado.document.write(`
     <!DOCTYPE html>
     <html lang="es">
     <head>
@@ -42,6 +42,8 @@ Empleado.prototype.generaHTML = function () {
         <p>DNI: ${this.dni}</p>
     </body>
     </html>
-    `;
+    `);
+    ventanaEmpleado.document.close();
 }
+
 

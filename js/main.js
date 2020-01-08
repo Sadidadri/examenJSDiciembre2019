@@ -10,8 +10,6 @@
     let enlace;
     let boton;
 
-    let arrayVentanasEnlace;
-    let arrayVentanasBoton;
 
     let manejadorEventos = function(evento){
         switch(evento){
@@ -38,12 +36,10 @@
                     );
                     ventana.document.close();
 
-                    arrayVentanasEnlace.push(ventana);
                 }
             case "boton":
                 return () =>{ //Cuando se pulsa el boton
                     let ventanaEmpleado = window.open("./pages/empleado.html","Adrian Angel Moya Moruno","");
-                    arrayVentanasBoton.push(ventanaEmpleado);
                 }
             default:
                 return;
