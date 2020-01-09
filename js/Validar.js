@@ -16,13 +16,25 @@ let Validar = {
         }
     },
     compruebaFecha(texto) {
-        let regexFecha = /^\d{2}[-/]\d{2}[-/]\d{4}$/;
+        let regexFecha = /^(\d{2})([-/])(\d{2})\2(\d{4})$/;
 
         if (!regexFecha.test(texto)) {
             return "Error.La fecha debe tener el siguiente formato: dd/mm/aaaa o dd-mm-aaaa";
         }
         else {
-            return "";
+            let fechaEntera = regexFecha.exec(texto);
+            let dia = Number(fechaEntera[1]);
+            let mes = Number(fechaEntera[3]);
+            let agno = Number(fechaEntera[4]);
+
+            let date = new Date(`${agno}/${mes}/${dia}`);
+
+            if(date.getFullYear() === agno && date.getMonth() === mes-1 && date.getDate() === dia){
+                return "";
+            }
+            else{
+                return "La fecha introducida no existe.";
+            }
         }
     },
     compruebaDni(texto) {
