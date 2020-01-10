@@ -45,10 +45,7 @@ let Validar = {
         let regexDni = /^(\d{8})[- _]?([A-Z]){1}$/;
 
         if (regexDni.test(dniValor.trim())) {
-            let dniComprobado = regexDni.exec(dniValor);
-            let dniNumeros = dniComprobado[1];
-            let letraDni = dniComprobado[2];
-
+            let [,dniNumeros,letraDni] = regexDni.exec(dniValor);
             let posicion = dniNumeros % 23;
 
             if (cadena[posicion] != letraDni) {
