@@ -22,11 +22,11 @@ let Validar = {
             return "Error.La fecha debe tener el siguiente formato: dd/mm/aaaa o dd-mm-aaaa";
         }
         else {
-            let fechaEntera = regexFecha.exec(texto);
-            let dia = Number(fechaEntera[1]);
-            let mes = Number(fechaEntera[3]);
-            let agno = Number(fechaEntera[4]);
-
+            
+            let [,dia,,mes,agno] = regexFecha.exec(texto);
+            dia = Number(dia); //Es necesario pasarlo a número para comprobarlo con la fecha creada en Date
+            mes = Number(mes); 
+            agno = Number(agno);
             let date = new Date(`${agno}/${mes}/${dia}`);
 
             if(date.getFullYear() === agno && date.getMonth() === mes-1 && date.getDate() === dia){
